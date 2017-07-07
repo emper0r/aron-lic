@@ -1,10 +1,10 @@
 from django.conf.global_settings import TEMPLATE_CONTEXT_PROCESSORS as TCP
 import os
 
-SECRET_KEY = 'xz)*53&2z7w_-g_eajchp8p&*m1!9c*synd!^p-z4v9qdb*g%!'
+SECRET_KEY = ''
 DEBUG = False
 TEMPLATE_DEBUG = True
-ALLOWED_HOSTS = ['aron.ctimeapps.it']
+ALLOWED_HOSTS = ['domain.tld']
 SITE_ROOT = os.path.dirname(os.path.realpath(__file__))
 ROOT_URLCONF = 'aronlic.urls'
 WSGI_APPLICATION = 'aronlic.wsgi.application'
@@ -15,7 +15,7 @@ USE_L10N = True
 USE_TZ = True
 EMAIL_HOST = '127.0.0.1'
 EMAIL_PORT = 25
-DEFAULT_FROM_EMAIL = 'no-reply@aron.ctimeapps.it'
+DEFAULT_FROM_EMAIL = 'no-reply@domain.tld'
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 STATIC_ROOT = ''

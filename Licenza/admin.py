@@ -14,7 +14,7 @@ def send_reminder(client, giorni, email_client):
     mail.send_mail('Avviso scadenza Licenza Aron Manager.',
                    ctx,
                    settings.DEFAULT_FROM_EMAIL,
-                   ['ctime@ctime.it', email_client],
+                   ['user@domain.tld', email_client],
                    fail_silently=True)
 
 
@@ -46,7 +46,7 @@ class LicAdmin(admin.ModelAdmin):
         self.send_email(obj.req, obj.lic, obj.email, obj.name, obj.client, obj.province, obj.qty_dev)
 
     def send_email(self, req, lic, email, name, client, province, qty_dev):
-        destination = [email, 'paolo@ctime.it', 'antonio@ctime.it']
+        destination = [email, 'user@domain.tld']
         if qty_dev is 0:
             qty_dev = 'Illimitato'
         else:
@@ -54,8 +54,7 @@ class LicAdmin(admin.ModelAdmin):
         ctx = 'Gentile Cliente,\n\nGrazie per aver scelto il nostro prodotto Aron Proxy, ' \
               'nel seguito inviamo i dati per l\'attivazione della licenza.\n\n' \
               'Cliente: ' + client + '\nNome: ' + name + '\nProvincia: ' + province + \
-              '\nCodice: ' + req + '\nLicenza: ' + lic + '\nNumero massimo di dispositivi gestibili: ' + str(qty_dev) + \
-              '\n\nComputer Time s.r.l\nVia A. Negri 6, Somma Lombardo, VA\nTelefono: +39 0331-985432\nFax: +39 0331-995627\n'
+              '\nCodice: ' + req + '\nLicenza: ' + lic + '\nNumero massimo di dispositivi gestibili: ' + str(qty_dev)
         mail.send_mail('Licenze per attivazione Aron Manager.',
                        ctx,
                        settings.DEFAULT_FROM_EMAIL,
